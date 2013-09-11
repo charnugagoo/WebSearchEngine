@@ -1,0 +1,110 @@
+1.read me file
+2.robot.txt #done by zhouran, naive solution
+3.do not frequency log into one site #redundant code by zhuoran&jiankai, solve this later
+4.site log
+5.all url process in one function #by zhuoran
+6.image, video url pre-computing #done by zhuoran
+7.MIME type of file #done by Jiankai
+8.check_url function: check slash, bulbul inside here #done by zhuoran
+9.check_file function: check MIME function, bulbul inside here #done by Jiankai
+10.add page fonction #done by zhuoran
+11.do not frequency log into one site, redundant code by zhuoran&jiankai, solve this later
+12.a bug found, some url name is "mailto:xxx" or "javascript xxx", zhuoran fixed this by a naive solution
+
+13.bug report:
+"
+Push into queue: https://developers.google.com/sandbar?q=&page_url=/showcase
+Traceback (most recent call last):
+  File "WebCrawler.py", line 236, in <module>
+    parser.feed(pageContent)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/sgmllib.py", line 104, in feed
+    self.goahead(0)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/sgmllib.py", line 174, in goahead
+    k = self.parse_declaration(i)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/markupbase.py", line 136, in parse_declaration
+    "unexpected %r char in declaration" % rawdata[j])
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/htmllib.py", line 45, in error
+    raise HTMLParseError(message)
+htmllib.HTMLParseError: unexpected '&' char in declaration
+
+#fixed by zhuoran by throw an exception
+"
+14.
+queue push front: http://sourceforge.net/projects/sevenzip
+IOErrorhttp://www.7-zip.org/
+
+queue push front: http://groups.google.com/group/rpi_fall2010/topics?hl=en
+IOErrorhttp://extremetracking.com/open?login=rarlab2
+
+IOErrorhttp://www.douban.com/note/227836317/
+IOErrorhttp://media.twitter.com
+IOErrorhttps://dev.twitter.com
+IOErrorhttp://douban.fm/
+IOErrorhttp://alphatown.com
+IOErrorhttp://www.douban.com/mobile/
+
+15. we should not take too much time on one url, continue sometime
+
+
+16.
+this query:
+python WebCrawler.py ElementaryStatisticsdouban 100
+
+
+Number: 90  http://book.douban.com/subject/7922176/
+Traceback (most recent call last):
+  File "WebCrawler.py", line 238, in <module>
+    parser.feed(pageContent)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/sgmllib.py", line 104, in feed
+    self.goahead(0)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/sgmllib.py", line 138, in goahead
+    k = self.parse_starttag(i)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/sgmllib.py", line 296, in parse_starttag
+    self.finish_starttag(tag, attrs)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/sgmllib.py", line 345, in finish_starttag
+    self.handle_starttag(tag, method, attrs)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/sgmllib.py", line 381, in handle_starttag
+    method(attrs)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/htmllib.py", line 395, in start_a
+    self.anchor_bgn(href, name, type)
+  File "WebCrawler.py", line 61, in anchor_bgn
+    self.process_url(href)
+  File "WebCrawler.py", line 82, in process_url
+    "depth": self.depth
+  File "WebCrawler.py", line 32, in Queue_Check_Push_Front
+    if CheckSite.checkSite_Visitable(href) == 1:
+  File "/Users/charnugagoo/Dropbox/Study/WebSearchEngine/WebCrawler/CheckSite.py", line 27, in checkSite_Visitable
+    if CheckRobots.checkRobotsFile(href):
+  File "/Users/charnugagoo/Dropbox/Study/WebSearchEngine/WebCrawler/CheckRobots.py", line 8, in checkRobotsFile
+    rp.read()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/robotparser.py", line 57, in read
+    f = opener.open(self.url)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib.py", line 205, in open
+    return getattr(self, name)(url)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib.py", line 331, in open_http
+    h = httplib.HTTP(host)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/httplib.py", line 1061, in __init__
+    self._setup(self._connection_class(host, port, strict))
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/httplib.py", line 693, in __init__
+    self._set_hostport(host, port)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/httplib.py", line 718, in _set_hostport
+    raise InvalidURL("nonnumeric port: '%s'" % host[i+1:])
+httplib.InvalidURL: nonnumeric port: ''
+
+
+17. interesting bug found:
+
+
+try this query "ElementaryStatisticsdouban", there are some results on google pages while none on ajax https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=ElementaryStatisticsdouban
+
+
+
+
+
+===========FINAL
+1.I/O
+2.highlights
+3.robots.txt modify by zhuoran done
+
+
+==========
